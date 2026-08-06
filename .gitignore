@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local tooling (skill registry cache)
 .atl/
+
+# apuntes personales
+/apuntes útiles/
