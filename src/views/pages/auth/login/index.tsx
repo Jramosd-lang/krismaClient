@@ -4,7 +4,7 @@ import Link from 'next/link'
 // Components Import
 import Logo from '@/components/shared/Logo'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import LoginForm from '@/views/pages/auth/login/login-form'
 
@@ -25,28 +25,11 @@ const Login = () => {
           </Link>
 
           <div>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Sign in to Shadcn Studio</CardTitle>
-            <CardDescription className='text-base'>Ship Faster and Focus on Growth.</CardDescription>
+            <CardTitle className='mb-2 text-2xl font-semibold'>Sign in to krismaClient</CardTitle>
           </div>
         </CardHeader>
 
         <CardContent className='px-6'>
-          <p className='text-muted-foreground mb-6 text-base'>
-            Login with{' '}
-            <Link href='#' className='text-card-foreground hover:underline'>
-              Magic Link
-            </Link>
-          </p>
-
-          {/* Quick Login Buttons */}
-          <div className='mb-6 flex flex-wrap gap-4 sm:gap-6'>
-            <Button variant='outline' className='grow'>
-              Login as User
-            </Button>
-            <Button variant='outline' className='grow'>
-              Login as Admin
-            </Button>
-          </div>
 
           {/* Login Form */}
           <div className='space-y-4'>
