@@ -16,10 +16,10 @@
 /* ------------------------------------IMPORTS --------------------------------------- */
 /* ----------------------------------------------------------------------------------- */
 
-import { useTheme } from "next-themes"; // No se, que lo comente Opencode xd
+import { useTheme } from "@teispace/next-themes"; // No se, que lo comente Opencode xd
 import { Button } from "../ui/button"; //Importa la apariencia base del botón.
 import { Sun, Moon } from "lucide-react"; //Importa los íconos de sol y luna de la biblioteca "lucide-react"
-import { relative } from "path";
+import { useState, useEffect } from "react"; //Para solucionar el problema de hidratación.
 
 
 
@@ -31,18 +31,30 @@ import { relative } from "path";
 
 const ThemeToggle = () => {
   
+  //Estado inicial del montaje.
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+
+    //Habilitar montaje para saber que el componente ya se renderizó.
+    setMounted(true);
+
+  }, []);
+
   //Desestructurar 'useTheme' para trabajar con las herramientas que necesitamos.
   //'theme' es el tema actual y 'setTheme' la función que altera el valor del tema actual.
   const {theme, setTheme} = useTheme();
 
 
+  
+
   return (
     
     //Usa un ternario para alternar el valor. Con 'z-index' alto para que agarre los clicks.
-    <Button className={'absolute top-4 right-4 z-50 cursor-pointer'} onClick={ () => {setTheme(theme === 'dark' ? 'light': 'dark')} }>
+    <Button className={'absolute top-4 right-4 z-50 cursor-pointer h-9 w-9'} onClick={ () => {setTheme(theme === 'dark' ? 'light': 'dark')} }>
 
       {/* Con un ternario se decide cuál ícono mostrar */}
-      {theme === 'dark' ? <Moon /> : <Sun />}
+      {mounted && (theme === 'dark' ? <Moon /> : <Sun />)} {/* Si 'mounted != true' no se muestra nada en el botón, así se evita el problema de hidratación. */}
 
     </Button>
   )

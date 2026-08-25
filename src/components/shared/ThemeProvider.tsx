@@ -9,7 +9,7 @@
 // Import del ThemeProvider de next-themes.
 // Le ponemos alias (NextThemeProvider) para no chocar con el componente
 // ThemeProvider que exporta nosotros más abajo.
-import { ThemeProvider as NextThemeProvider } from 'next-themes'
+import { ThemeProvider as NextThemeProvider } from '@teispace/next-themes'
 
 // Importa un tipo de dato (ReactNode) para usarlo más adelante en el componente.
 import type { ReactNode } from 'react'
